@@ -26,18 +26,18 @@ class AboutVariableScope < Neo::Koan
 
   # ------------------------------------------------------
 
-  def test_blocks_can_access_variables_outside_scope 
+  def test_blocks_can_access_variables_outside_scope
     test = "Hi"
     (1..2).each do
       test = "Hey"
     end
 
-    assert_equal __, test    
+    assert_equal __, test
   end
 
   def test_block_variables_cannot_be_accessed_outside_scope
     (1..2).each do
-      x = 0 
+      x = 0
     end
     assert_equal __, defined? x
   end
@@ -51,7 +51,7 @@ class AboutVariableScope < Neo::Koan
     def initialize(n)
       @name = n
       # Instance variables are prefixed with one '@' character.
-      @@total += 1 
+      @@total += 1
     end
 
     def name
@@ -63,14 +63,14 @@ class AboutVariableScope < Neo::Koan
     end
   end
 
-  def test_instance_variable 
+  def test_instance_variable
     oscar = Mouse.new("Oscar")
-    assert_equal __, oscar.name 
+    assert_equal __, oscar.name
   end
 
   def test_class_variable
     (1..9).each { |i| Mouse.new("#{i}") }
-    # Things may appear easier than they actually are.  
+    # Things may appear easier than they actually are.
     assert_equal __, Mouse.count
   end
 
@@ -105,10 +105,9 @@ class AboutVariableScope < Neo::Koan
 
     assert_equal __, $anywhere
   end
-
 end
 
 # THINK ABOUT IT:
-# 
+#
 # What will $anywhere be down here, outside of the scope of the
 # AboutVariableScope class?
